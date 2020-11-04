@@ -2,3 +2,7 @@ Version 1.1:
 No longer prompts for the name of the input file. Defaults to "raid.txt".
 No longer prompts for the number of titans in the raid. Now finds the number of titans automatically.
 No longer prompts for the number of players in the clan. This feature was never necessary but there was an error with file formatting. 
+
+Version 1.2
+Now outputs to an xml file instead of a txt file.
+An xsd file is provided to allow opening of the xml file in Excel.
