@@ -1,0 +1,28 @@
+<?xml version="1.0"?>
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema">
+
+  <xs:element name="raid">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element  name="players">
+          <xs:complexType>
+            <xs:sequence>
+              <xs:element name="player" type="playerData" maxOccurs="unbounded"/>
+            </xs:sequence>
+          </xs:complexType>
+        </xs:element>
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  
+
+  <xs:complexType name="playerData">
+    <xs:sequence>
+      <xs:element name="Username" type="xs:string"/>
+      <xs:element name="Number_of_Attacks" type="xs:integer"/>
+      <xs:element name="Damage_per_Attack" type="xs:integer"/>
+      <xs:element name="Percent_Relevance" type="xs:decimal"/>
+    </xs:sequence>
+  </xs:complexType>
+  
+</xs:schema>
