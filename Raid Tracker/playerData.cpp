@@ -82,35 +82,13 @@ void playerData::addRelDmg(int add)
 
 void playerData::print(std::ostream& out, int threshold)
 {
-	out << std::setw(25) << std::left << this->name;
-		
-	if (this->numAttacks < threshold - 4)
-	{
-		out << "-";
-	}
-	else if (this->numAttacks < threshold)
-	{
-		out << "*";
-	}
-	else
-	{
-		out << " ";
-	}
+	out << "<player>" << std::endl
+			<< "<Username>" << this->name << "</Username>" << std::endl
+			<< "<Number_of_Attacks>" << this->numAttacks << "</Number_of_Attacks>" << std::endl
+			<< "<Damage_per_Attack>" << this->dmgPerAtk << "</Damage_per_Attack>" << std::endl
+			<< "<Percent_Relevance>" << std::setprecision(4) << this->percentRel << "</Percent_Relevance>" << std::endl
+		<< "</player>" << std::endl;
 
-	out << std::setw(19) << this->numAttacks;
-
-	if (this->dmgPerAtk <= 250000)
-	{
-		out << "*";
-	}
-	else
-	{
-		out << " ";
-	}
-
-	out	<< std::setw(19) << this->dmgPerAtk
-		<< std::setw(20) << std::setprecision(4) << this->percentRel 
-		<< std::endl;
 }
 
 void playerData::debug(std::ostream& out)

@@ -107,7 +107,7 @@ int calcTakedar(armorDamageData damage)
 
 int main()
 {
-	////prompts for the name of the raid distribution file
+	////prompts for the name of the raid distribution file (not being used currently)
 	//std::cout << "Enter File Name: ";
 	//std::string fileName;
 	//std::cin >> fileName;
@@ -293,14 +293,13 @@ int main()
 
 	//opens the output file
 	std::ofstream outputFile;
-	outputFile.open("report.txt");
+	outputFile.open("report.xml");
 
-	//outputs the table head
-	outputFile << std::setw(25) << std::left << "Name:"
-		<< std::setw(20) << "Number of Attacks:"
-		<< std::setw(20) << "Damage per Attack:"
-		<< std::setw(20) << std::setprecision(4) << "Percent Relevance"
-		<< std::endl;
+	//outputs the overhead needed for the xml file
+	outputFile << "<?xml version=\"1.0\" encoding=\"UTF-8\"?>" << std::endl
+		<< "<raid xmlns:xsi=\"http://www.w3.org/2001/XMLSchema-instance\" xsi:noNamespaceSchemaLocation=\"./raidFormat.xsd\">" << std::endl
+		<< "<players>" << std::endl;
+
 
 	//finds the max number of attacks a player made
 	int maxAttacks = -1;
@@ -340,6 +339,10 @@ int main()
 	{
 		player.print(outputFile, threshold);
 	}
+
+	//closes the tags in the xml file
+	outputFile << "</players>" << std::endl
+		<< "</raid>";
 
 	//closes the input and output files
 	input.close();
